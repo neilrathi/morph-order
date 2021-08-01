@@ -1,0 +1,12 @@
+Voice	0
+Aspect	2
+Tense	4
+Gender	6
+Abbr	8
+Case	10
+Polarity	12
+Person	14
+Mood	16
+Typo	18
+Number	20
+VerbForm	22

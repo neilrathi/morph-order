@@ -1,0 +1,7 @@
+VerbForm	0
+Tense	2
+Mood	4
+Typo	6
+Person	8
+Gender	10
+Number	12

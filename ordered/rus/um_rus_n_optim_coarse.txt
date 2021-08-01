@@ -1,0 +1,4 @@
+Gender	0
+Animacy	2
+Case	4
+Number	6

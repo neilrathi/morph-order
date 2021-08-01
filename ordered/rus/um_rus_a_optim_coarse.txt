@@ -1,0 +1,6 @@
+Poss	0
+Degree	2
+Number	4
+Gender	6
+Animacy	8
+Case	10
