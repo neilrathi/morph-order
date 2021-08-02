@@ -1,11 +1,11 @@
 library(tidyverse)
 library(rPref)
 rm(list=ls())
-setwd("~/Desktop/src/combo/")
+setwd("~/Desktop/morph-order/langs/")
 
 # FINE GRAINED ANALYSIS
-optim <- read.csv("spa/rank_diff.csv", sep = '\t')
-fusion <- read.csv("spa/surprisals.txt", sep = '\t')
+optim <- read.csv("lat/rank_diff.csv", sep = '\t')
+fusion <- read.csv("lat/surprisals.txt", sep = '\t')
 
 # rectangular sum
 pareto_area = function(x, y) {
@@ -49,9 +49,9 @@ permutation_test = function(df, x, y, num_iter = 10000) {
   mean(results <= standard)
 }
 
+# create df
 colnames(optim) <- c('feats', 'rank')
 colnames(fusion) <- c('feats', 'meansurp', 'medsurp', 'sdsurp')
-
 fine_optim <- merge(optim, fusion)
 
 # permutation test on empirical data
@@ -61,12 +61,15 @@ with(fine_optim, permutation_test(fine_optim, meansurp, rank))
 p <- high(fine_optim$meansurp) * high(fine_optim$rank)
 res <- psel(fine_optim, p, top = nrow(fine_optim))
 res1 <- res %>% filter(.level == "1")
+res1 <- res1 %>% add_row(meansurp = 0, rank = max(fine_optim$rank))
+res1 <- res1 %>% add_row(meansurp = max(fine_optim$meansurp), rank = 0)
 res1 <- res1[order(res1$meansurp),]
 
-tradeoff <- ggplot() + 
-  geom_point(data = res, aes(x = meansurp, y = rank)) + 
-  geom_step(data = res1 , aes(x = meansurp, y = rank)) +
+res %>%
+  ggplot(aes(x = meansurp, y = rank)) + 
+  geom_point(data = res) + 
+  geom_step(data = res1 , aes(x = meansurp, y = rank), direction="vh") +
   xlab('Average Fusion') + ylab('Difference in Rank') +
   theme_minimal()
 
-ggsave("result_plots/spa_tradeoff.pdf", tradeoff, width = 6, height = 4)
+ggsave("../result_plots/lat_tradeoff.pdf", width = 6, height = 4)
