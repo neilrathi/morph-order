@@ -1,6 +1,7 @@
 # morph-order
 Morpheme order in fusional languages
 ## Directory
+* `model_run_2.py` is Python code for generating the fusion data for each pair of features
 * `code` contains Python code for generating rank-fusion data
 * `langs` contains data from each language
 * `rank_diff.csv` is the difference in rank between two fine-grained features
