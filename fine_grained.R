@@ -2,10 +2,11 @@ library(tidyverse)
 library(rPref)
 rm(list=ls())
 setwd("~/Desktop/morph-order/langs/")
+lang = "spa"
 
 # FINE GRAINED ANALYSIS
-optim <- read.csv("lat/rank_diff.csv", sep = '\t')
-fusion <- read.csv("lat/surprisals.txt", sep = '\t')
+optim <- read.csv(paste(lang, "/rank_diff.csv", sep = ""), sep = '\t')
+fusion <- read.csv(paste(lang, "/surprisals.txt", sep = ""), sep = '\t')
 
 # rectangular sum
 pareto_area = function(x, y) {
@@ -15,7 +16,7 @@ pareto_area = function(x, y) {
       area <- x[i]*y[i]
     }
     else {
-      area <- area + max(y[i], y[i-1])*(x[i]-x[i-1])
+      area <- area + min(y[i], y[i-1])*(x[i]-x[i-1])
     }
   }
   return(area)
@@ -72,4 +73,4 @@ res %>%
   xlab('Average Fusion') + ylab('Difference in Rank') +
   theme_minimal()
 
-ggsave("../result_plots/lat_tradeoff.pdf", width = 6, height = 4)
+ggsave(paste("../result_plots/", lang, "_tradeoff.pdf", sep = ""), width = 6, height = 4)
