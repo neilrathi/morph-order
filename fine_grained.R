@@ -1,8 +1,8 @@
 library(tidyverse)
 library(rPref)
 rm(list=ls())
-setwd("~/Desktop/src/combo/langs/")
-lang = "ara"
+setwd("~/Desktop/morph-order/langs/")
+lang = "spa"
 
 # FINE GRAINED ANALYSIS
 fine_optim <- read.csv(paste(lang, "/avg_rank_diff.csv", sep = ""), sep = '\t')
@@ -29,6 +29,7 @@ permutation_test = function(df, x, y, num_iter = 10000) {
   res <- psel(df, p, top = nrow(df))
   # skyline
   res1 <- res %>% filter(.level == "1")
+  res1 <- res1 %>% drop_na()
   res1 <- res1[order(res1$meansurp),]
   # empirical AUC
   standard = with(res1, pareto_area(meansurp, rank))
@@ -41,6 +42,7 @@ permutation_test = function(df, x, y, num_iter = 10000) {
     p <- high(x) * high(y_shuffled)
     res <- psel(df_shuffled, p, top = nrow(df_shuffled))
     res1 <- res %>% filter(.level == "1")
+    res1 <- res1 %>% drop_na()
     res1 <- res1[order(res1$x),]
     # shuffled AUC
     result = with(res1, pareto_area(x, y_shuffled))
@@ -56,20 +58,22 @@ permutation_test = function(df, x, y, num_iter = 10000) {
 # fine_optim <- merge(optim, fusion)
 
 # permutation test on empirical data
-# with(fine_optim, permutation_test(fine_optim, meansurp, rank))
+with(fine_optim, permutation_test(fine_optim, meansurp, rank))
 
 # for tradeoff plot
 p <- high(fine_optim$meansurp) * high(fine_optim$rank)
 res <- psel(fine_optim, p, top = nrow(fine_optim))
 res1 <- res %>% filter(.level == "1")
-res1 <- res1 %>% add_row(meansurp = 0, rank = max(fine_optim$rank))
+res1 <- res1 %>% drop_na()
+res1 <- res1 %>% add_row(meansurp = 0, rank = max(fine_optim$rank, na.rm = TRUE))
 res1 <- res1 %>% add_row(meansurp = max(fine_optim$meansurp), rank = 0)
 res1 <- res1[order(res1$meansurp),]
 
 res %>%
   ggplot(aes(x = meansurp, y = rank)) + 
   geom_point(data = res) + 
-  #geom_step(data = res1 , aes(x = meansurp, y = rank), direction="vh") +
+  # geom_text(aes(label=feats)) +
+  geom_step(data = res1 , aes(x = meansurp, y = rank), direction="vh") +
   xlab('Average Fusion') + ylab('Difference in Rank') +
   theme_minimal()
 

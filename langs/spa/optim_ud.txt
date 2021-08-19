@@ -1,0 +1,16 @@
+VerbForm:Fin	0
+Mood:Imp	2
+Mood:Cnd	4
+Mood:Sub	6
+Gender:Masc	8
+VerbForm:Ger	10
+Mood:Ind	12
+Tense:Past	14
+Tense:Imp	16
+Tense:Fut	18
+Tense:Pres	20
+Person:2	22
+Person:1	24
+Person:3	26
+Number:Sing	28
+Number:Plur	30

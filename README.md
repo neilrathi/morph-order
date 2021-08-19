@@ -7,6 +7,5 @@ Morpheme order in fusional languages
 * `rank_diff.csv` is the difference in rank between two fine-grained features
 * `coarse_rank_diff.csv` is the difference in rank between two coarse-grained categories
 * `pmi_diff.csv` is the pmi between two fine-grained features 
-* `ordered` contains UniMorph versions of the orderings used
 * `result_plots` contains tradeoff plots
 * `fine_grained.R` is R code for the permutation test + Pareto front

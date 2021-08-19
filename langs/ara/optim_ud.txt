@@ -1,0 +1,17 @@
+Voice:Act	0
+Voice:Pass	2
+VerbForm:Fin	4
+Mood:Sub	6
+Mood:Ind	8
+Aspect:Perf	10
+Mood:Jus	12
+Aspect:Imp	14
+Gender:Fem	16
+Gender:Masc	18
+Mood:Imp	20
+Number:Dual	22
+Number:Plur	24
+Number:Sing	26
+Person:1	28
+Person:2	30
+Person:3	32

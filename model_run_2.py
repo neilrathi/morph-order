@@ -564,17 +564,24 @@ for trainfeats in featureslist:
                     len_list.append(len(correct_form))
                     affix_len_list.append(len(correct_form) - len(lemma_string))
                 except KeyError:
-                    print(f'KeyError with {featstring}.')
+                    pass
 
-            mean_surp_form = statistics.mean(fusion_list)
-            med_surp_form = statistics.median(fusion_list)
-            stdev_surp_form = statistics.stdev(fusion_list)
-            mean_len = statistics.mean(len_list)
-            mean_affixlen = statistics.mean(affix_len_list)
+            try:
+                mean_surp_form = statistics.mean(fusion_list)
+                med_surp_form = statistics.median(fusion_list)
+                stdev_surp_form = statistics.stdev(fusion_list)
+                mean_len = statistics.mean(len_list)
+                mean_affixlen = statistics.mean(affix_len_list)
+            except statistics.StatisticsError:
+                mean_surp_form = np.nan
+                print('Not enough data for mean surprisal, skipping feature combination.\n')
 
             first_form.clear()
             resultsfile.close()
     surpfile = os.path.join(filepath, language, f'{language}_surprisals.txt')
     with open(surpfile, 'a') as surpfile:
-        surpfile.write(f'{";".join(trainfeats)}\t{mean_surp_form}\t{med_surp_form}\t{stdev_surp_form}\n')
-    print(f'Completed surprisal calculations for {trainfeats}, moving to next combination.\n')
+        if np.isnan(mean_surp_form):
+            print('Moving to next combination.\n')
+        else:
+            surpfile.write(f'{";".join(trainfeats)}\t{mean_surp_form}\t{mean_len}\n')
+            print(f'Completed surprisal calculations for {trainfeats}, moving to next combination.\n')
