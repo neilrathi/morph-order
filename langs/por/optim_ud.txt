@@ -1,0 +1,6 @@
+Mood:Ind	0
+Tense:Past	2
+VerbForm:Ger	4
+Person:3	6
+Number:Sing	8
+VerbForm:Fin	10

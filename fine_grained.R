@@ -1,8 +1,8 @@
 library(tidyverse)
 library(rPref)
 rm(list=ls())
-setwd("~/Desktop/morph-order/langs/")
-lang = "spa"
+setwd("~/projects/morph-order/langs/")
+lang = "por"
 
 # FINE GRAINED ANALYSIS
 fine_optim <- read.csv(paste(lang, "/avg_rank_diff.csv", sep = ""), sep = '\t')

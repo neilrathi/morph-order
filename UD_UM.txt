@@ -1,0 +1,141 @@
+Person=0	0
+Person=1	1
+Person=2	2
+Person=3	3
+Person=4	4
+Gender=Masc	MASC
+Gender=Fem	FEM
+Gender=Neut	NEUT
+Gender=Com	MASC+FEM
+Animacy=Anim	ANIM
+Animacy=Hum	HUM
+Animacy=Inan	INAN
+Animacy=Nhum	NHUM
+Case=Nom	NOM
+Case=Acc	ACC
+Case=Abs	ABS
+Case=Erg	ERG
+Case=Dat	DAT
+Case=Gen	GEN
+Case=Voc	VOC
+Case=Loc	ESS
+Case=Par	PRT
+Case=Dis	DIST
+Case=Ess	FRML
+Case=Tra	TRANS
+Case=Com	COM
+Case=Abe	PRIV
+Case=Ine	IN+ESS
+Case=Ill	IN+ALL
+Case=Ela	IN+ABL
+Case=Add	IN+ALL;LGSPEC1
+Case=All	AT+ALL
+Case=Abl	AT+ABL
+Case=Sup	ON+ESS
+Case=Sub	ON+ALL
+Case=Del	
+Case=Lat	
+Case=Tem	
+Case=Ter	
+Case=Cau	
+Case=Ben	BEN
+Case=Cmp	COMPV
+Case=Equ	EQTV
+Case=Ins	INS
+Case=Ade	AT+ESS
+Definite=Ind	INDF
+Definite=Spec	SPEC
+Definite=Def	DEF
+Definite=Cons	PSSD
+Definite=Com	
+Degree=Abs	AB
+Degree=Cmp	CMPR
+Degree=Equ	EQT
+Degree=Pos	
+Degree=Sup	RL
+Mood=Ind	IND
+Mood=Imp	IMP
+Mood=Cnd	COND
+Mood=Pot	POT
+Mood=Sub	SBJV
+Mood=Jus	IMP
+Mood=Prp	PURP
+Mood=Qot	QUOT
+Mood=Opt	OPT
+Mood=Des	
+Mood=Nec	
+Mood=Adm	ADM
+Evident=Fh	FH
+Evident=Nfh	NFH
+Number=Sing	SG
+Number=Plur	PL
+Number=Dual	DU
+Number=Tri	TRI
+Number=Pauc	PAUC
+Number=Grpa	GRPA
+Number=Grpl	GRPL
+Number=Inv	INVN
+Number=Count	
+Number=Ptan	
+Number=Coll	
+Polite=Elev	ELEV
+Polite=Form	FORM
+Polite=Humb	HUMB
+Polite=Infm	INFM
+Polarity=Pos	POS
+Polarity=Neg	NEG
+VerbForm=Fin	FIN
+VerbForm=Inf	NFIN
+VerbForm=Sup	V.CVB
+VerbForm=Part	V.PTCP
+VerbForm=Conv	V.CVB
+VerbForm=Gdv	V.CVB
+VerbForm=Ger	V.MSDR
+VerbForm=Vnoun	V.MSDR
+VerbForm=Short	LGSPEC1
+Tense=Fut	FUT
+Tense=Imp	IPFV
+Tense=Past	PST
+Tense=Pqp	PST+PRF
+Tense=Pres	PRS
+Aspect=Hab	HAB
+Aspect=Imp	IPFV
+Aspect=Iter	ITER
+Aspect=Perf	PFV
+Aspect=Prog	PROG
+Aspect=Prosp	PROSP
+Voice=Act	ACT
+Voice=Mid	MID
+Voice=Pass	PASS
+Voice=Antip	ANTIP
+Voice=Dir	DIR
+Voice=Inv	INV
+Voice=Rcp	RECP
+Voice=Cau	CAUS
+Reflex=Yes	REFL
+Poss=Yes	
+NumType=Card	
+NumType=Dist	
+NumType=Frac	
+NumType=Mult	
+NumType=Ord	
+NumType=Range	
+NumType=Sets	
+PronType=Art	
+ADV	ADV
+PRON	PRO
+VERB	V
+ADP	ADP
+DET	DET
+NOUN	N
+ADJ	ADJ
+SCONJ	CONJ
+CCONJ	CONJ
+PUNCT	
+NUM	NUM
+AUX	V
+PROPN	PROPN
+X	
+SYM	
+PART	PART
+INTJ	INTJ
