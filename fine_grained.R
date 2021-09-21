@@ -65,7 +65,8 @@ p <- high(fine_optim$meansurp) * high(fine_optim$rank)
 res <- psel(fine_optim, p, top = nrow(fine_optim))
 res1 <- res %>% filter(.level == "1")
 res1 <- res1 %>% drop_na()
-res1 <- res1 %>% add_row(meansurp = 0, rank = max(fine_optim$rank, na.rm = TRUE))
+res1 <- res1 %>% add_row(meansurp = 0,
+                         rank = max(fine_optim$rank, na.rm = TRUE))
 res1 <- res1 %>% add_row(meansurp = max(fine_optim$meansurp), rank = 0)
 res1 <- res1[order(res1$meansurp),]
 
@@ -77,4 +78,5 @@ res %>%
   xlab('Average Fusion') + ylab('Difference in Rank') +
   theme_minimal()
 
-ggsave(paste("../result_plots/", lang, "_avg_tradeoff.pdf", sep = ""), width = 6, height = 4)
+ggsave(paste("../result_plots/", lang, "_avg_tradeoff.pdf", sep = ""),
+       width = 6, height = 4)
