@@ -1,0 +1,9 @@
+Number:Plur	0
+Number:Dual	2
+Number:Sing	4
+Definite:Cons	6
+Definite:Def	8
+Definite:Ind	10
+Case:Acc	12
+Case:Gen	14
+Case:Nom	16

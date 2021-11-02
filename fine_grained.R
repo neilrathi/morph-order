@@ -2,7 +2,7 @@ library(tidyverse)
 library(rPref)
 rm(list=ls())
 setwd("~/projects/morph-order/langs/")
-lang = "por"
+lang = "ara"
 
 # FINE GRAINED ANALYSIS
 fine_optim <- read.csv(paste(lang, "/avg_rank_diff.csv", sep = ""), sep = '\t')
@@ -74,7 +74,7 @@ res %>%
   ggplot(aes(x = meansurp, y = rank)) + 
   geom_point(data = res) + 
   # geom_text(aes(label=feats)) +
-  geom_step(data = res1 , aes(x = meansurp, y = rank), direction="vh") +
+  geom_step(data = res1, aes(x = meansurp, y = rank), direction="vh") +
   xlab('Average Fusion') + ylab('Difference in Rank') +
   theme_minimal()
 
