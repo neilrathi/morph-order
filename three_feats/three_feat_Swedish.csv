@@ -1,0 +1,10 @@
+Abbr,Voice,Mood	1.0
+Abbr,Voice,Tense	1.5275252316519468
+Abbr,Voice,VerbForm	2.0816659994661326
+Abbr,Mood,Tense	1.5275252316519468
+Abbr,Mood,VerbForm	2.0
+Abbr,Tense,VerbForm	2.081665999466133
+Voice,Mood,Tense	1.0
+Voice,Mood,VerbForm	1.5275252316519468
+Voice,Tense,VerbForm	1.5275252316519468
+Mood,Tense,VerbForm	1.0
