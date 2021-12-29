@@ -67,7 +67,9 @@ def threefeat(lang):
 		feat_rank_list = [final_dict[i] for i in feats]
 		out_dict[','.join(feats)] = statistics.stdev(feat_rank_list)
 		if collections.Counter(feats) == collections.Counter(feats_arg):
-			feat_dict[lang] = statistics.stdev(feat_rank_list)
+			feat_dict[lang] = statistics.stdev(feat_rank_list)/len(feat_rank_list)
+
+	print(lang, feat_rank_list)
 
 	with open(outfile, 'w+') as g:
 		writer = csv.writer(g, delimiter = '\t')
