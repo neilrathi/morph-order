@@ -1,11 +1,16 @@
 # morph-order
-Morpheme order in fusional languages
+Code for "Explaining patterns of fusion in morphological paradigms using the memory--surprisal tradeoff."
+
+Contact [neilrathi@gmail.com](mailto:neilrathi@gmail.com) for questions.
+
 ## Directory
 * `model_run_2.py` is Python code for generating the fusion data for each pair of features
-* `code` contains Python code for generating rank-fusion data
+* `code` contains Python code for running experiments and plot generation
 * `langs` contains data from each language
-* `rank_diff.csv` is the difference in rank between two fine-grained features
-* `coarse_rank_diff.csv` is the difference in rank between two coarse-grained categories
-* `pmi_diff.csv` is the pmi between two fine-grained features 
+* `avg_rank_diff.csv` compares the difference in rank and fusion of all two-feature combinations per language
 * `result_plots` contains tradeoff plots
-* `fine_grained.R` is R code for the permutation test + Pareto front
+
+## Requirements
+* R. We used version 4.0.3. Analyses and plot generation require `tidyr`, `dplyr`, `ggplot2`, and `rPref`.
+* Python 3.8
+* GPU TensorFlow. We used version 2.2.0.

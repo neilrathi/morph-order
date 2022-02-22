@@ -76,7 +76,8 @@ res %>%
   # geom_text(aes(label=feats)) +
   geom_step(data = res1, aes(x = meansurp, y = rank), direction="vh") +
   xlab('Average Fusion') + ylab('Difference in Rank') +
-  theme_minimal()
+  theme_minimal() +
+  theme(text = element_text(size = 36))
 
-ggsave(paste("../result_plots/", lang, "_avg_tradeoff.pdf", sep = ""),
-       width = 6, height = 4)
+ggsave(paste("../result_plots/", lang, "_avg_tradeoff.png", sep = ""),
+       width = 9, height = 6)
