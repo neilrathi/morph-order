@@ -21,7 +21,7 @@ f_df %>%
   geom_violin() +
   # geom_text(aes(label=FeatureCombination)) +
   theme_minimal() +
-  labs(x="", y="Normalized Standard Deviation", fill="") +
+  labs(x="", y="Average Separation in Optimal Ordering", fill="") +
   theme(legend.position="none", axis.text.x=element_blank(), panel.grid.major.x = element_blank()) +
   # geom_hline(yintercept=0, color="black") +
   geom_point(aes(x=cat, y=median(NormalizedSD)), color = "black", shape=1, size = 3) +
