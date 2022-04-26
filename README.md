@@ -1,5 +1,5 @@
 # morph-order
-Code for "Explaining patterns of fusion in morphological paradigms using the memory--surprisal tradeoff."
+Code for "Explaining patterns of fusion in morphological paradigms using the memory--surprisal tradeoff" (at CogSci 2022)
 
 Contact [neilrathi@gmail.com](mailto:neilrathi@gmail.com) for questions.
 
