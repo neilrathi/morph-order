@@ -1,4 +1,4 @@
-# python cursory_two.py --filedir ../../morph-sens/features/finnish_nouns_adj/results/forWords_Finnish_OptimizeOrder_Nouns_Coarse_FineSurprisal/ --filepath ../three_feats/ --pos NOUN --feat1 Number --feat2 Case
+# python suppletion.py --filedir ../../morph-sens/features/finnish_nouns_adj/results/forWords_Finnish_OptimizeOrder_Nouns_Coarse_FineSurprisal/ --filepath ../three_feats/ --pos NOUN --feat1 Number --feat2 Case
 
 # basic imports
 import re, os, io, time, csv, statistics, argparse, itertools, random, collections

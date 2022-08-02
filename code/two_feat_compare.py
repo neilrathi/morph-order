@@ -1,6 +1,6 @@
-# python three_feat_compare.py  --filedir ../../morph-sens/features/finnish_nouns_adj/results/forWords_Finnish_OptimizeOrder_Nouns_Coarse_FineSurprisal/ --filepath ../
+# python two_feat_compare.py  --filedir ../../morph-sens/features/finnish_nouns_adj/results/forWords_Finnish_OptimizeOrder_Nouns_Coarse_FineSurprisal/ --filepath ../
 
-# Determines length-normalized standard deviation for all three-feature tuples
+# Determines length-normalized standard deviation for all two-feature pairs
 # based on optimized ordering from the ETH, across all possible languages.
 # Minimum number of datapoints to be reported  = 7.
 
@@ -86,7 +86,7 @@ for lang in lang_list:
 
 feats_list = list(feats_list_set)
 
-combos = itertools.combinations(feats_list, 3)
+combos = itertools.combinations(feats_list, 2)
 combo_dict = {}
 
 for C in list(combos):
@@ -101,18 +101,20 @@ for C in list(combos):
 		f_pos = []
 		for f in list(C):
 			f_pos.append((lang_dict[L])[f])
-		if set(C) == {'Tense', 'Aspect', 'Mood'} or set(C) == {'Person', 'Number', 'Gender'}:
+		if set(C) == {'Case', 'Number'} or set(C) == {'Person', 'Number'}:
 			print(L, C)
 		if ''.join(list(C)) not in combo_dict:
-			combo_dict[''.join(list(C))] = [statistics.stdev(f_pos)/len(lang_dict[L])]
+			combo_dict[''.join(list(C))] = [(max(f_pos)-min(f_pos))/len(lang_dict[L])]
 		else:
-			combo_dict[''.join(list(C))].append(statistics.stdev(f_pos)/len(lang_dict[L]))
+			combo_dict[''.join(list(C))].append((max(f_pos)-min(f_pos))/len(lang_dict[L]))
 
-outfile = os.path.join(filepath, f'threefeatdata.csv')
+#outfile = os.path.join(filepath, f'twofeatdata.csv')
 
-with open(outfile, 'w+') as f:
-	writer = csv.writer(f, delimiter = '\t')
-	writer.writerow(['FeatureCombination', 'NormalizedSD'])
-	for i in combo_dict:
-		if len(combo_dict[i]) > 7:
-			writer.writerow([i, sum(combo_dict[i])/len(combo_dict[i])])
+#with open(outfile, 'w+') as f:
+#	writer = csv.writer(f, delimiter = '\t')
+#	writer.writerow(['FeatureCombination', 'NormalizedSD'])
+#	for i in combo_dict:
+#		if len(combo_dict[i]) > 7:
+#			writer.writerow([i, sum(combo_dict[i])/len(combo_dict[i])])
+#		if i == "PersonNumber" or i == "NumberCase":
+#			print(i, len(combo_dict[i]))
